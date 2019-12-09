@@ -27,7 +27,7 @@ class ObjectAclPage {
             expect(permission).toBe('READ')
         }
 
-        console.log(`Object's ACL lifecircle is normally.`)
+        console.log(`Object's ACL life circle is normally.`)
         
         await Objects.deleteObject(bucketName, objectName)
         await Bucket.deletebucket(bucketName)

@@ -9,6 +9,8 @@ var DeleteObjects = require('./sample/deleteObjects')
 var GetObject = require('./sample/getObject')
 var ObjectAcl = require('./sample/objectAcl')
 var MultipartUpload = require('./sample/multipartUpload')
+var AppendObject = require('./sample/appendObject')
+// var RenameObject = require('./sample/renameObject')
 
 const makeRequest = async () => {
     await ListBucket.listBucket()
@@ -22,6 +24,8 @@ const makeRequest = async () => {
     await GetObject.getObject()
     await ObjectAcl.objectAcl()
     await MultipartUpload.multipartUpload()
+    await AppendObject.appendObject()
+    //await RenameObject.renamedObject()
 }
 
 makeRequest()

@@ -22,7 +22,7 @@ class bucketAclPage {
             expect(permission).toBe('READ')
         }
 
-        console.log(`Bucket's ACL lifecircle is normally.`)
+        console.log(`Bucket's ACL life circle is normally.`)
         await Bucket.deletebucket(bucketName)
     }
 

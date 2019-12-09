@@ -11,12 +11,15 @@ class multipartUploadPage {
         const buffer = bucketAndObject.buffer
         
         await Bucket.createbucket(bucketName)
+        console.log('error')
         let createData = await Objects.createmultipartupload(bucketName, largeObjectName)
         let parts = new Array()
         for(let i = 1; i <= part; i++) {
             let uploadData = await Objects.uploadPart(buffer, bucketName, largeObjectName, i, createData.UploadId)
             parts[i-1] = { ETag: uploadData.ETag, PartNumber: i}
         }
+
+        await Objects.listparts(bucketName)
 
         await Objects.completeMultipartUpload(bucketName, largeObjectName, createData.UploadId, parts)
 
