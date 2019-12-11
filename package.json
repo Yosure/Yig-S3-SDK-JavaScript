@@ -4,19 +4,28 @@
   "description": "",
   "main": "s3.js",
   "scripts": {
-    "test": "node sample.js"
+    "sample": "node sample.js",
+    "test": "npm run test:integration",
+    "test:integration": "npm run test:integration:sequential",
+    "test:integration:sequential": "jest --config=testsdk/jest.config.js --runInBand"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@testauto/jest-allure": "^1.2.1",
+    "@types/jest": "^24.0.23",
     "aws-sdk": "^2.6.3",
-    "jest": "^23.6.0",
     "babel-core": "^6.26.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-es2015-block-scoped-functions": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "jest": "^23.6.0",
+    "jest-allure-reporter": "^1.2.1",
+    "jest-html-reporters": "^1.2.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.3"
   },
   "babel": {
     "presets": [
@@ -29,7 +38,9 @@
   "dependencies": {
     "config": "^3.0.1",
     "glob": "^7.1.3",
-    "jest-matchers": "^20.0.3"
+    "jest-matchers": "^20.0.3",
+    "klaw-sync": "^6.0.0",
+    "micromatch": "^4.0.2"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -39,6 +50,10 @@
       "!src/registerServiceWorker.js",
       "!src/setupTests.js",
       "!src/test/**"
+    ],
+    "reporters": [
+      "default",
+      "jest-html-reporters"
     ],
     "coverageThreshold": {
       "global": {
